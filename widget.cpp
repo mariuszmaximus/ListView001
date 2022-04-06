@@ -1,6 +1,8 @@
 #include "widget.h"
 #include "./ui_widget.h"
 
+#include <QMessageBox>
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
@@ -44,11 +46,21 @@ void Widget::keyPressEvent(QKeyEvent *event)
     if (event->key()==Qt::Key_Return)
     {
         QModelIndexList list =ui->listView->selectionModel()->selectedIndexes();
-        QStringList slist;
-        foreach(const QModelIndex &index, list){
-            slist.append( index.data(Qt::DisplayRole ).toString());
+//        QStringList slist;
+//        foreach(const QModelIndex &index, list){
+//            slist.append( index.data(Qt::DisplayRole ).toString());
+//            qDebug()<< index.row();
+//        }
+//        qDebug() << slist.join(",");
+
+        if(list.count()==1)
+        {
+            qDebug() << "Wybrano plik:" << files[list.at(0).row() ].filename;
+
+            QMessageBox msgBox;
+            msgBox.setText(files[list.at(0).row() ].filename);
+            msgBox.exec();
         }
-        qDebug() << slist.join(",");
 
     }
 
