@@ -5,6 +5,7 @@
 #include <QStringListModel>
 #include <qevent.h> // QKeyEvent
 #include <qitemselectionmodel.h>
+#include <QDebug>  // dziwne Qt6 nie wymaga a Qt5 juz tak
 
 #include "onefile.h"
 #include "filesmodel.h"
