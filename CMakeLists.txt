@@ -19,6 +19,7 @@ set(PROJECT_SOURCES
         widget.h            widget.cpp              widget.ui
         onefile.h 
         filesmodel.h        filesmodel.cpp
+        formmain.h          formmain.cpp            formmain.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

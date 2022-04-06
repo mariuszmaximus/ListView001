@@ -8,6 +8,8 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
+    setAttribute(Qt::WA_DeleteOnClose); // free on close !!!
+
     files.push_back(OneFile("opis1", "plik1.txt"));
     files.push_back(OneFile("opis2", "plik2.txt"));
     files.push_back(OneFile("opis3", "plik3.txt"));
@@ -78,9 +80,18 @@ void Widget::onActivated(const QModelIndex &index)
 {
 
     qDebug() << "onActivated  index.row()=" << index.row();
+
+    close();
 }
 
 void Widget::onSelectionChanged(QItemSelection item)
 {
     qDebug() << "onSelectionChanged item.count()=" << item.count();
+}
+
+
+void Widget::Execute()
+{
+  Widget * dlg = new Widget(nullptr);
+  dlg->show();
 }

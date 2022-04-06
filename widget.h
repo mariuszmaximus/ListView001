@@ -23,7 +23,7 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-
+    static void Execute();
 private:
     Ui::Widget *ui;
     std::vector <OneFile> files;
