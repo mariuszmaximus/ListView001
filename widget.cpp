@@ -10,13 +10,10 @@ Widget::Widget(QWidget *parent)
 
     setAttribute(Qt::WA_DeleteOnClose); // free on close !!!
 
-    files.push_back(OneFile("opis1", "plik1.txt"));
-    files.push_back(OneFile("opis2", "plik2.txt"));
-    files.push_back(OneFile("opis3", "plik3.txt"));
 
-    for (int i=0;i<55;++i)
+    for (int i=1;i<55;++i)
     {
-        QString sOpis = QString("opis%1").arg(i);
+        QString sOpis = QString("Item%1").arg(i);
         QString sPlik = QString("plik%1.txt").arg(i);
         files.push_back(OneFile(sOpis,sPlik));
     }
@@ -61,12 +58,16 @@ Widget::Widget(QWidget *parent)
 
     // select item on list
     QItemSelectionModel::SelectionFlags flag = QItemSelectionModel::Select;
-    ui->listView->selectionModel()->select(model->index(0), flag); //
+    ui->listView->selectionModel()->select(model->index(idx_wybrany), flag); //
+
+    // edit mode OFF
+    ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
 }
 
 Widget::~Widget()
 {
+    qDebug() << "!!! DESTRUCTOR !!!";
     delete model;
     delete ui;
 }
@@ -84,6 +85,7 @@ void Widget::keyPressEvent(QKeyEvent *event)
             //            QMessageBox msgBox;
             //            msgBox.setText(files[list.at(0).row() ].filename);
             //            msgBox.exec();
+            idx_wybrany = list.at(0).row();
         }
     }
 }

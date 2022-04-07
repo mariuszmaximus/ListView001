@@ -27,16 +27,16 @@ public:
 private:
     Ui::Widget *ui;
     std::vector <OneFile> files;
+    inline static int idx_wybrany=0;
 #ifdef OLD_VERSION
     QStringListModel *model;
 #else
     FilesModel *model;
 #endif
 
-
-public slots:
     void keyPressEvent(QKeyEvent *event);
 
+public slots:
     void onSelectionChanged(QItemSelection item);
     void onActivated(const QModelIndex &index);
 };

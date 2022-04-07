@@ -20,6 +20,7 @@ private slots:
 
 private:
     Ui::FormMain *ui;
+    void keyPressEvent(QKeyEvent *event);
 };
 
 #endif // FORMMAIN_H

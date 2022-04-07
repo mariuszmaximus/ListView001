@@ -17,6 +17,16 @@ FormMain::~FormMain()
 
 void FormMain::on_pushButton_clicked()
 {
-    Widget::Execute();
+
 }
+
+
+void FormMain::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Return)
+    {
+        Widget::Execute();
+    }
+}
+
 

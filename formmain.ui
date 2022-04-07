@@ -13,17 +13,17 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>100</y>
-     <width>141</width>
-     <height>24</height>
+     <x>60</x>
+     <y>60</y>
+     <width>271</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="text">
-    <string>Open Dialog Window</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tylko przyciski:&lt;/p&gt;&lt;p&gt;&amp;lt; &amp;gt; UP DOWN ENTER ESC&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Press ENTER to start&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>
