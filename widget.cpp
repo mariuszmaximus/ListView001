@@ -14,6 +14,13 @@ Widget::Widget(QWidget *parent)
     files.push_back(OneFile("opis2", "plik2.txt"));
     files.push_back(OneFile("opis3", "plik3.txt"));
 
+    for (int i=0;i<55;++i)
+    {
+        QString sOpis = QString("opis%1").arg(i);
+        QString sPlik = QString("plik%1.txt").arg(i);
+        files.push_back(OneFile(sOpis,sPlik));
+    }
+
 #ifdef OLD_VERSION
     // Create model
     model = new QStringListModel(this);
@@ -51,6 +58,11 @@ Widget::Widget(QWidget *parent)
     connect(ui->listView->selectionModel(),
             SIGNAL(selectionChanged(QItemSelection, QItemSelection)),
             this, SLOT(onSelectionChanged(QItemSelection)));
+
+    // select item on list
+    QItemSelectionModel::SelectionFlags flag = QItemSelectionModel::Select;
+    ui->listView->selectionModel()->select(model->index(0), flag); //
+
 }
 
 Widget::~Widget()
